@@ -9,15 +9,15 @@
       xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-    <title>Test nax</title>
+    <title>Ajax Counter</title>
 </h:head>
 
 <h:body>
-    <h:form id="form">
-        <h:commandLink action="#{sampleBean.storeMessage}">Go to locale's hello world</h:commandLink>
-    </h:form>
-    <h:form id="form2">
-        <h:commandLink action="ajaxCounter">Go to ajax counter page</h:commandLink>
+    <h:form id="formId">
+        The counter value is <h:outputText id="counter" value="#{ajaxBean.counter}"/>
+        <h:commandButton actionListener="#{ajaxBean.increase}" value="Ajax call">
+            <f:ajax render="counter"/>
+        </h:commandButton>
     </h:form>
 </h:body>
 </html>
