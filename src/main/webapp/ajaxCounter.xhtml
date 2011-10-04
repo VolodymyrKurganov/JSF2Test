@@ -15,6 +15,7 @@
 <h:body>
     <h:form id="formId">
         The counter value is <h:outputText id="counter" value="#{ajaxBean.counter}"/>
+        <f:verbatim><br/></f:verbatim>
         <h:commandButton actionListener="#{ajaxBean.increase}" value="Ajax call">
             <f:ajax render="counter"/>
         </h:commandButton>
