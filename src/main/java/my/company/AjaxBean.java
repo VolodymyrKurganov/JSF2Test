@@ -2,6 +2,7 @@ package my.company;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 import java.io.Serializable;
 
 @SessionScoped
@@ -19,9 +20,20 @@ public class AjaxBean implements Serializable{
 
     public void increase() {
         counter++;
+        int i = 0;
+        i = counter / i;
     }
 
-    public void showError() {
-        throw new RuntimeException("bubug");
+    public void increase(ActionEvent event) {
+        increase();
+    }
+
+    public void showError(ActionEvent event) {
+        increase();
+    }
+
+    public String showError() {
+        increase();
+        return "greeting";
     }
 }

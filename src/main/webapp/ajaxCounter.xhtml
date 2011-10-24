@@ -13,50 +13,39 @@
 </h:head>
 
 <h:body>
-    <h:panelGrid columns="2" border="2" style="border-color: blue">
-        <f:facet name="header">
-            <h:outputText value="Header"/>
-        </f:facet>
+    <h:form id="form1">
+        <h:panelGrid id="panel1" columns="3">
+            <h:outputText value="Messages:"/>
+            <h:messages style="color: red" globalOnly="true"/>
+            <h:messages style="color: blue;" globalOnly="false"/>
 
-        <h:form id="foo">
-            The counter №1 value is <h:outputText id="counter" value="#{ajaxBean.counter}"/>
-            <f:verbatim><br/></f:verbatim>
-            <h:commandButton actionListener="#{ajaxBean.increase}" value="Ajax call">
-                <f:ajax render="counter :foo2:counter2"/>
-            </h:commandButton>
-        </h:form>
-
-        <h:panelGroup>
-            <h:form id="foo2">
-                The counter №2 value is <h:outputText id="counter2" value="#{ajaxBean.counter}"/>
-            </h:form>
-
-            <h:commandButton actionListener="#{ajaxBean.increase}" value="Ajax call 2">
-                <f:ajax render=":foo2:counter2 foo:counter"/>
-            </h:commandButton>
-        </h:panelGroup>
-
-        <f:facet name="footer">
-            <h:panelGroup layout="block" style="text-align:center;">
-                <h:commandButton actionListener="#{ajaxBean.increase}" value="Ajax call for all">
-                    <f:ajax render="foo2:counter2 foo:counter"/>
-                </h:commandButton>
-            </h:panelGroup>
-        </f:facet>
-
-    </h:panelGrid>
-
-    <h:form>
-        <h:panelGrid columns="2">
+            <h:outputText value="Input:"/>
             <h:inputText value="#{ajaxBean.counter}"/>
-            <h:commandButton actionListener="#{ajaxBean.showError}" value="show error"/>
-            <h:commandButton actionListener="#{ajaxBean.increase}" value="Ajax call for all">
-                    <f:ajax render=":foo2:counter2 :foo:counter"/>
-                </h:commandButton>
-            <h:commandButton value="submit"/>
+            <h:outputText value="#{ajaxBean.counter}"/>
+
+            <h:outputText value="h:link:"/>
+            <h:link action="#{ajaxBean.showError}" value="show error action" />
+            <h:link actionListener="#{ajaxBean.showError}" value="show error actionListener"/>
+
+            <h:outputText value="h:link:2:"/>
+            <h:link outcome="greeting" actionListener="#{ajaxBean.showError}" value="show error action" />
+            <h:outputText value="h:link:2:end"/>
+
+            <h:outputText value="h:commandLink:"/>
+            <h:commandLink action="#{ajaxBean.showError}" value="show error action"/>
+            <h:commandLink actionListener="#{ajaxBean.showError}" value="show error actionListener"/>
+
+            <h:outputText value="h:commandButton:"/>
+            <h:commandButton action="#{ajaxBean.showError}" value="show error action"/>
+            <h:commandButton actionListener="#{ajaxBean.showError}" value="show error actionListener"/>
+
+            <h:outputText value="h:commandButton:"/>
+            <h:commandButton action="#{ajaxBean.showError}" actionListener="#{ajaxBean.showError}" value="Ajax call action+actionListener">
+                <f:ajax render="panel1"/>
+                <f:convertDateTime/>
+            </h:commandButton>
+            <h:commandButton value="Submit"/>
         </h:panelGrid>
-        <h:messages style="color: red" globalOnly="true"/>
-        <h:messages style="color: blue;" globalOnly="false"/>
     </h:form>
 
 </h:body>
