@@ -14,21 +14,26 @@
 
 <h:body>
     <h:form id="form1">
-        <h:panelGrid id="panel1" columns="3">
+        <h:panelGrid id="panel1" columns="3" cellpadding="3" cellspacing="3" border="2">
+
+            <f:facet name="header">
+                <h:outputText value="JSF actions UI components"/>
+            </f:facet>
+
             <h:outputText value="Messages:"/>
-            <h:messages style="color: red" globalOnly="true"/>
-            <h:messages style="color: blue;" globalOnly="false"/>
+            <h:messages for="form1" style="color: red" globalOnly="true"/>
+            <h:messages for="form1" style="color: blue;" globalOnly="false"/>
 
             <h:outputText value="Input:"/>
             <h:inputText value="#{ajaxBean.counter}"/>
             <h:outputText value="#{ajaxBean.counter}"/>
 
             <h:outputText value="h:link:"/>
-            <h:link action="#{ajaxBean.showError}" value="show error action" />
-            <h:link actionListener="#{ajaxBean.showError}" value="show error actionListener"/>
+            <h:link value="show error action"/>
+            <h:link value="show error actionListener"/>
 
             <h:outputText value="h:link:2:"/>
-            <h:link outcome="greeting" actionListener="#{ajaxBean.showError}" value="show error action" />
+            <h:link outcome="greeting" value="show error action"/>
             <h:outputText value="h:link:2:end"/>
 
             <h:outputText value="h:commandLink:"/>
@@ -40,11 +45,30 @@
             <h:commandButton actionListener="#{ajaxBean.showError}" value="show error actionListener"/>
 
             <h:outputText value="h:commandButton:"/>
-            <h:commandButton action="#{ajaxBean.showError}" actionListener="#{ajaxBean.showError}" value="Ajax call action+actionListener">
+            <h:commandButton action="#{ajaxBean.showError}" actionListener="#{ajaxBean.showError}"
+                             value="Ajax call action+actionListener">
                 <f:ajax render="panel1"/>
-                <f:convertDateTime/>
             </h:commandButton>
             <h:commandButton value="Submit"/>
+        </h:panelGrid>
+    </h:form>
+
+    <f:verbatim>
+        <br/>
+        <br/>
+    </f:verbatim>
+
+    <h:form id="form2">
+        <h:panelGrid id="panel1" columns="3" cellpadding="3" cellspacing="3" border="2">
+            <f:facet name="header">
+                <h:outputText value="JSF validations"/>
+            </f:facet>
+
+            <h:outputText value="Messages:"/>
+            <h:messages for="form2" style="color: red" globalOnly="true"/>
+            <h:messages for="form2" style="color: blue;" globalOnly="false"/>
+
+
         </h:panelGrid>
     </h:form>
 
