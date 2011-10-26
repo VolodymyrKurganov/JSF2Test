@@ -8,11 +8,17 @@ import java.util.ResourceBundle;
 public class SampleBean {
     private String message;
 
-    public String storeMessage() {
+    public String showLocaleMessage() {
         FacesContext context = FacesContext.getCurrentInstance();
         ResourceBundle bundle = context.getApplication().getResourceBundle(context, "msgs");
         message = bundle.getString("hello.world");
+        return "localization";
+    }
 
+    public String showLocaleMessageFacelets() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ResourceBundle bundle = context.getApplication().getResourceBundle(context, "msgs");
+        message = bundle.getString("hello.world");
         return "response";
     }
 

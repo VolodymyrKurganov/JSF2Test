@@ -1,0 +1,25 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:ui="http://java.sun.com/jsf/facelets"
+              xmlns:cc="http://java.sun.com/jsf/composite"
+              xmlns:h="http://java.sun.com/jsf/html"
+              xmlns:f="http://java.sun.com/jsf/core">
+
+    <cc:interface name="validInput" displayName="Pizdec Display Name of validation input field">
+        <cc:attribute name="value" required="true" targets=""/>
+        <cc:attribute name="errorMessageColor" targets=""/>
+    </cc:interface>
+
+    <cc:implementation>
+        <h:panelGroup layout="block">
+            <h:inputText id="age" value="#{cc.attrs.value}" required="true" requiredMessage="Че за хуйня - оно пустое">
+                <f:convertNumber currencySymbol="$" type="currency"/>
+            </h:inputText>
+
+            <h:panelGroup layout="block">
+                <h:outputText value="Messages:"/>
+                <h:messages for="age" style="#{cc.attrs.errorMessageColor}" layout="table" globalOnly="false"/>
+            </h:panelGroup>
+        </h:panelGroup>
+    </cc:implementation>
+
+</ui:component>

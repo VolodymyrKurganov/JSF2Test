@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Test nax</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h:panelGrid id="panel1" columns="2" cellpadding="3" cellspacing="3" border="2">
+
+            <f:facet name="header">
+                <h:outputText value="JSF tests"/>
+            </f:facet>
+
+            <h:outputText value="Localization:"/>
+            <h:commandLink action="#{sampleBean.showLocaleMessage}">link</h:commandLink>
+            <h:outputText value="Ajax counter:"/>
+            <h:commandLink action="ajaxCounter">link</h:commandLink>
+            <h:outputText value="Validation:"/>
+            <h:commandLink action="validation">link</h:commandLink>
+            <h:outputText value="Facelets:"/>
+            <h:commandLink action="/facelets/greeating">link</h:commandLink>
+            <h:outputText value="Facelets tags:"/>
+            <h:commandLink action="/newFaceletComponent">link</h:commandLink>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>

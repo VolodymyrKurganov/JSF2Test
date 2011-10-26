@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Validation</title>
+</h:head>
+
+<h:body>
+    <h:form id="formValidation">
+        <h:panelGrid id="panelValidation" columns="1" cellpadding="3" cellspacing="3" border="2">
+            <f:facet name="header">
+                <h:outputText value="JSF validations"/>
+            </f:facet>
+
+            <h:inputText id="age" value="#{validationBean.age}" required="true">
+                <f:convertNumber currencySymbol="$" type="currency"/>
+                <f:ajax execute="@this" event="blur" render="age-error age-error-global"/>
+            </h:inputText>
+
+            <h:panelGroup layout="block">
+                <h:outputText value="Messages:"/>
+                <h:messages id="age-error"  style="color: red" globalOnly="false"/>
+                <h:messages id="age-error-global"  style="color: blue;" globalOnly="true"/>
+            </h:panelGroup>
+
+            <h:commandButton value="Submit"/>
+
+        </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+<h:body>
+    <ui:composition template="/facelets/template.xhtml">
+        <ui:define name="header">
+            Это шапка из greeting.xhtml
+        </ui:define>
+ 
+        <ui:define name="content">
+            <h:outputText value="#{msgs['hello.world']}"/>
+ 
+            <h:form id="form">
+                <h:commandLink action="#{sampleBean.showLocaleMessageFacelets}">Go to hello world</h:commandLink>
+            </h:form>
+        </ui:define>
+ 
+        <ui:define name="sidebar">
+            Сайдбар из greeting.xhtml
+        </ui:define>
+ 
+        <ui:define name="footer">
+            Facelets &copy;
+        </ui:define>
+ 
+    </ui:composition>
+</h:body>
+</html>

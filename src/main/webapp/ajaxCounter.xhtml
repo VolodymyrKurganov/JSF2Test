@@ -33,7 +33,7 @@
             <h:link value="show error actionListener"/>
 
             <h:outputText value="h:link:2:"/>
-            <h:link outcome="greeting" value="show error action"/>
+            <h:link outcome="ajaxCounter" onclick="alert('Invoke onclick calling')" value="show error action"/>
             <h:outputText value="h:link:2:end"/>
 
             <h:outputText value="h:commandLink:"/>
@@ -52,25 +52,5 @@
             <h:commandButton value="Submit"/>
         </h:panelGrid>
     </h:form>
-
-    <f:verbatim>
-        <br/>
-        <br/>
-    </f:verbatim>
-
-    <h:form id="form2">
-        <h:panelGrid id="panel1" columns="3" cellpadding="3" cellspacing="3" border="2">
-            <f:facet name="header">
-                <h:outputText value="JSF validations"/>
-            </f:facet>
-
-            <h:outputText value="Messages:"/>
-            <h:messages for="form2" style="color: red" globalOnly="true"/>
-            <h:messages for="form2" style="color: blue;" globalOnly="false"/>
-
-
-        </h:panelGrid>
-    </h:form>
-
 </h:body>
 </html>
