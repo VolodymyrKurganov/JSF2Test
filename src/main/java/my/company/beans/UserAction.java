@@ -63,9 +63,7 @@ public class UserAction implements Serializable{
     }
 
     public void deleteByGet() {
-        log.debug("UserAction.deleteByGet");
-        log.debug("action = " + action);
-        log.debug("user = " + user);
+        log.debug("UserAction.deleteByGet action = " + action + " userId =" + user.getId());
         if (null != action && action.equals("delete")) {
             userStorage.removeById(user.getId());
         }
