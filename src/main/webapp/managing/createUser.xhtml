@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ff="http://java.sun.com/jsf/composite/formating"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Create User</title>
+</h:head>
+
+<h:body>
+
+    <h:link outcome="userList" value="Go to back"/>
+
+    <h:form id="formValidation">
+        <h:panelGrid id="panelValidation" columns="1" cellpadding="3" cellspacing="3" border="2">
+            <f:facet name="header">
+                <h:outputText value="Fill all fields for creation of the new User"/>
+            </f:facet>
+
+            <ff:requeredField label="Name:" type="name" value="#{newUser.name}"/>
+            <ff:requeredField label="Email:" type="email" value="#{newUser.email}"/>
+            <ff:requeredField label="Age:" type="age" value="#{newUser.age}"/>
+
+        </h:panelGrid>
+
+        <f:verbatim><br/></f:verbatim>
+        <f:verbatim><br/></f:verbatim>
+
+        <h:commandButton actionListener="#{userAction.add}" action="userList" value="Submit"/>
+    </h:form>
+
+</h:body>
+</html>

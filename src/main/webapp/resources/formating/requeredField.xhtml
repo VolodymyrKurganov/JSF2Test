@@ -1,0 +1,40 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:ui="http://java.sun.com/jsf/facelets"
+              xmlns:cc="http://java.sun.com/jsf/composite"
+              xmlns:h="http://java.sun.com/jsf/html"
+              xmlns:f="http://java.sun.com/jsf/core">
+
+    <cc:interface shortDescription="Бадяга редкая">
+        <cc:attribute required="true" name="label"/>
+        <cc:attribute required="true" name="type" shortDescription="Типа это может быть email,name или age"/>
+        <cc:attribute required="true" name="value"/>
+    </cc:interface>
+
+    <cc:implementation>
+        <h:panelGrid columns="3">
+            <h:outputLabel for="valueInput" value="#{cc.attrs.label}"/>
+
+            <h:inputText id="valueInput" value="#{cc.attrs.value}" required="true" rendered="#{cc.attrs.type eq 'name'}"
+                         requiredMessage="Че за хуйня - оно пустое">
+                <f:validateLength minimum="3" maximum="30"/>
+            </h:inputText>
+
+            <h:inputText id="valueInput2" value="#{cc.attrs.value}" required="true" rendered="#{cc.attrs.type eq 'age'}"
+                         requiredMessage="Че за хуйня - оно пустое">
+                <f:convertNumber/>
+            </h:inputText>
+
+            <h:inputText id="valueInput3" value="#{cc.attrs.value}" required="true"
+                         rendered="#{cc.attrs.type eq 'email'}"
+                         requiredMessage="Че за хуйня - оно пустое">
+                <f:validateRegex pattern=".+@.+\.[a-z]+"/>
+            </h:inputText>
+            <h:panelGroup>
+                <h:message for="valueInput" style="color:#ff7f50" layout="table"/>
+                <h:message for="valueInput2" style="color:#ff7f50" layout="table"/>
+                <h:message for="valueInput3" style="color:#ff7f50" layout="table"/>
+            </h:panelGroup>
+        </h:panelGrid>
+    </cc:implementation>
+
+</ui:component>

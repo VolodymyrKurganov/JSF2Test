@@ -30,6 +30,13 @@
             <h:commandLink action="/facelets/greeating">link</h:commandLink>
             <h:outputText value="Facelets tags:"/>
             <h:commandLink action="/newFaceletComponent">link</h:commandLink>
+            <h:outputText value="Managing:"/>
+            <h:panelGrid columns="2">
+                <h:outputText value="User list"/>
+                <h:commandLink action="/managing/userList">link</h:commandLink>
+                <h:outputText value="Create user"/>
+                <h:commandLink action="/managing/createUser">link</h:commandLink>
+            </h:panelGrid>
         </h:panelGrid>
     </h:form>
 </h:body>

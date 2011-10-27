@@ -1,4 +1,4 @@
-package my.company;
+package my.company.beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

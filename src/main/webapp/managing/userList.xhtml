@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ff="http://java.sun.com/jsf/composite/formating"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>User List</title>
+</h:head>
+
+<f:metadata>
+    <f:viewParam name="userId" value="#{newUser.id}" required="true"
+                 requiredMessage="User id is required"
+                 validatorMessage="User id must be between 0 and 1000">
+        <f:validateLongRange minimum="0" maximum="1000"/>
+    </f:viewParam>
+    <f:viewParam name="action" value="#{userAction.action}" required="true"
+                 requiredMessage="Action id is required"/>
+    <f:event type="preRenderView" listener="#{userAction.deleteByGet}"/>
+</f:metadata>
+
+<h:body>
+    <h:messages/>
+    <h:outputText value="UserId: #{newUser.id}"/>
+    <h:outputText value="Action: #{userAction.action}"/>
+
+    <h:form id="usersForm">
+        <h:dataTable id="userTable" border="2" value="#{userAction.users}" var="user" rendered="#{not empty userAction.users}">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Id"/>
+                </f:facet>
+                <h:outputText value="#{user.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="User name"/>
+                </f:facet>
+                <h:outputText value="#{user.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    Email
+                </f:facet>
+                <h:outputText value="#{user.email}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="age"/>
+                </f:facet>
+                <h:outputText value="#{user.age}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions"/>
+                </f:facet>
+                <h:button value="delete" includeViewParams="true">
+                    <f:param name="userId" value="#{user.id}"/>
+                    <f:param name="action" value="delete"/>
+                </h:button>
+            </h:column>
+        </h:dataTable>
+
+        <h:commandLink action="createUser" immediate="true" value="Add new User"/>
+    </h:form>
+
+</h:body>
+</html>
